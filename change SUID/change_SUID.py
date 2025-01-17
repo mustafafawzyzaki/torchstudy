@@ -6,6 +6,7 @@ import pynetdicom
 #hello world
 # My Name is Mustafa
 # this is my script code 
+# the script has been finished and nned to test 
 
 def change_suid(study_directory , new_suid):
     for root , dirs, files in os.walk(study_directory):
