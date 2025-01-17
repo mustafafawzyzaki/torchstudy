@@ -1,4 +1,3 @@
-import os 
 """
 This script changes the Study Instance UID (SUID) of DICOM files in a specified directory.
 Modules:
@@ -18,6 +17,8 @@ Usage:
     The script prompts the user to enter the path to the study directory and the new Study Instance UID.
     It then updates the Study Instance UID for all DICOM files in the specified directory.
 """
+
+import os 
 import sys
 import pydicom 
 import pynetdicom 
