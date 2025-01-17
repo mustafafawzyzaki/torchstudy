@@ -1,4 +1,23 @@
 import os 
+"""
+This script changes the Study Instance UID (SUID) of DICOM files in a specified directory.
+Modules:
+    os: Provides a way of using operating system dependent functionality.
+    sys: Provides access to some variables used or maintained by the interpreter.
+    pydicom: A pure Python package for working with DICOM files.
+    pynetdicom: A Python package for DICOM networking.
+Functions:
+    change_suid(study_directory, new_suid):
+        Changes the Study Instance UID of all DICOM files in the specified directory.
+        Parameters:
+            study_directory (str): The path to the directory containing the DICOM files.
+            new_suid (str): The new Study Instance UID to be set for the DICOM files.
+        Returns:
+            None
+Usage:
+    The script prompts the user to enter the path to the study directory and the new Study Instance UID.
+    It then updates the Study Instance UID for all DICOM files in the specified directory.
+"""
 import sys
 import pydicom 
 import pynetdicom 
@@ -19,6 +38,6 @@ def change_suid(study_directory , new_suid):
                         ds.save_as(os.path.join(root, file))
                         print(f"Updated Study Instance UID for {file}: {ds[0x0020,0x000D].value}")
 
-study_directory = r"D:\VNA_Test\DICOM_Convert"  
-suid = "1.3.6.1.4.1.5962.1.2.0.1175775772.5716.0"  
+study_directory = input("Enter the path to the study directory: ")
+suid = input("Enter the new Study Instance UID: ")
 change_suid(study_directory , suid)                 
