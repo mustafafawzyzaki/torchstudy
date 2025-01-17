@@ -3,6 +3,7 @@ import sys
 import pydicom 
 import pynetdicom 
 
+#hello world
 
 def change_suid(study_directory , new_suid):
     for root , dirs, files in os.walk(study_directory):
