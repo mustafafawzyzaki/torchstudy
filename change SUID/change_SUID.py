@@ -20,5 +20,5 @@ def change_suid(study_directory , new_suid):
                         print(f"Updated Study Instance UID for {file}: {ds[0x0020,0x000D].value}")
 
 study_directory = r"D:\VNA_Test\DICOM_Convert"  
-suid = "1.3.6.1.4.1.5962.1.2.0.1175775772.5717.0"  
+suid = "1.3.6.1.4.1.5962.1.2.0.1175775772.5716.0"  
 change_suid(study_directory , suid)                 
