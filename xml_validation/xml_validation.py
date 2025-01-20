@@ -22,7 +22,7 @@ def get_studies_data(conn):
         cursor = conn.cursor()
         query = """
         SELECT study_inc_id, accessionno_det_str, study_UID, study_directory
-        FROM studies
+        FROM studies where study_directory is not null
         """
         cursor.execute(query)
         return cursor.fetchall()
@@ -61,7 +61,7 @@ sql_ip = input("Enter the SQL Server IP: ")
 sql_un = input("Enter the SQL Server username: ")
 sql_pw = input("Enter the SQL Server password: ")
 csv_folder_path = input("Enter the path to the folder where you want to save the CSV file: ").replace('"', '')
-csv_file = os.path.join(csv_folder_path, 'xml_validation.csv')
+csv_file = os.path.join(csv_folder_path, 'xml_validation.')
 
 # Main logic
 if __name__ == "__main__":
