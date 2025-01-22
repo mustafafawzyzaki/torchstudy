@@ -61,7 +61,7 @@ sql_ip = input("Enter the SQL Server IP: ")
 sql_un = input("Enter the SQL Server username: ")
 sql_pw = input("Enter the SQL Server password: ")
 csv_folder_path = input("Enter the path to the folder where you want to save the CSV file: ").replace('"', '')
-csv_file = os.path.join(csv_folder_path, 'xml_validation.')
+csv_file = os.path.join(csv_folder_path, 'xml_validation.csv')
 
 # Main logic
 if __name__ == "__main__":
