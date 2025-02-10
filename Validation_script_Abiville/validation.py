@@ -53,7 +53,7 @@ class validation():
         data = self.retreive_file_data(db_data)
         for row in data:
             query = f"exec migration_sp_insert_study_data @tablename='{tablename}', @patient_id = '{row[0]}', @accession_number = '{row[1]}', @study_uid = '{row[2]}', @study_folder_path = '{row[3]}', @root_path = '{row[4]}', @patient_folder = '{row[5]}', @study_folder = '{row[6]}', @series_folder = '{row[7]}', @file_name = '{row[8]}'"
-            print (query)
+            # print (query)
             conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+self.sqlserver_ip+';DATABASE='+dbname+';UID='+self.sqlserver_user+';PWD='+ self.sqlserver_password)
             cursor = conn.cursor()
             cursor.execute(query)
