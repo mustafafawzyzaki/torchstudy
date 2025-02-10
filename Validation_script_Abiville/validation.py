@@ -51,7 +51,7 @@ class validation():
 
     def write_to_sql(self, dbname , tablename , db_data):
         data = self.retreive_file_data(db_data)
-        for row in data:
+        for row in tqdm(data , desc = f'Writing study data to SQL Table "{tablename}"' , unit=' rows'):
             query = f"exec migration_sp_insert_study_data @tablename='{tablename}', @patient_id = '{row[0]}', @accession_number = '{row[1]}', @study_uid = '{row[2]}', @study_folder_path = '{row[3]}', @root_path = '{row[4]}', @patient_folder = '{row[5]}', @study_folder = '{row[6]}', @series_folder = '{row[7]}', @file_name = '{row[8]}'"
             # print (query)
             conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+self.sqlserver_ip+';DATABASE='+dbname+';UID='+self.sqlserver_user+';PWD='+ self.sqlserver_password)
@@ -69,7 +69,7 @@ db_info = [sqlserver_ip, sqlserver_port, sqlserver_user, sqlserver_password]
 
 valid_obj = validation(db_info)
 data = valid_obj.retreive_study_data('PXMAIN')
-valid_obj.write_to_sql('PXMAIN', 'study_data', data)
+valid_obj.write_to_sql('PXMain', 'study_data1', data)
 
 
 
